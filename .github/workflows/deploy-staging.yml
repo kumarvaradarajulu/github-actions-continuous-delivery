@@ -21,6 +21,12 @@ jobs:
           name: webpack artifacts
           path: public/
 
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.SuperSecret }}
+        run: |
+          echo "$SUPER_SECRET"
+      
   deploy:
     name: Deploy Node.js app to AWS
     needs: build
